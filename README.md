@@ -2,7 +2,6 @@
 
 [![Database](https://img.shields.io/badge/Database-MySQL-blue.svg)](https://www.mysql.com/)
 [![Schema Version](https://img.shields.io/badge/Schema%20Version-1.0.0-green.svg)](#)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](#license)
 
 ## 📋 Table of Contents
 
@@ -16,10 +15,8 @@
 - [Usage Examples](#usage-examples)
 - [Performance Optimizations](#performance-optimizations)
 - [Security Features](#security-features)
-- [API Integration Ready](#api-integration-ready)
-- [Testing](#testing)
 - [Contributing](#contributing)
-- [License](#license)
+
 
 ## 🎯 Project Overview
 
@@ -68,13 +65,6 @@ The database consists of **15 core tables** organized into logical modules:
 | **Reviews** | `product_reviews` | Customer feedback system |
 | **Marketing** | `coupons`, `coupon_usage` | Promotional campaigns |
 
-## ✨ Key Features
-
-### 🔐 Advanced Security Features
-- **Data Validation**: CHECK constraints for email format, phone numbers, price ranges
-- **Password Security**: Hash-based password storage
-- **Input Sanitization**: Format validation for critical fields
-- **Referential Integrity**: Cascading deletes and restricted operations
 
 ### 📈 Performance Optimizations
 - **Strategic Indexing**: 15+ optimized indexes on frequently queried columns
@@ -318,19 +308,7 @@ erDiagram
 4. **Load Sample Data** (Optional)
    ```sql
    mysql -u root -p ecommerce_store < sample_data.sql
-   ```
-
-### Configuration
-
-Update connection parameters in your application:
-```sql
--- Database Configuration
-Host: localhost
-Database: ecommerce_store
-Username: your_username
-Password: your_password
-Port: 3306
-```
+   ``
 
 ## 💡 Usage Examples
 
@@ -379,30 +357,6 @@ GROUP BY u.user_id
 ORDER BY lifetime_value DESC;
 ```
 
-### 📱 API Integration Examples
-
-#### REST Endpoints Structure
-```javascript
-// Product Management
-GET    /api/products              // List products
-POST   /api/products              // Create product
-GET    /api/products/{id}         // Get product details
-PUT    /api/products/{id}         // Update product
-DELETE /api/products/{id}         // Delete product
-
-// Order Management
-GET    /api/orders                // List orders
-POST   /api/orders                // Create order
-GET    /api/orders/{id}           // Get order details
-PUT    /api/orders/{id}/status    // Update order status
-
-// User Management
-POST   /api/users/register        // User registration
-POST   /api/users/login          // User authentication
-GET    /api/users/profile         // Get user profile
-PUT    /api/users/profile         // Update user profile
-```
-
 ## ⚡ Performance Optimizations
 
 ### 📈 Indexing Strategy
@@ -439,63 +393,6 @@ LEFT JOIN categories c ON p.category_id = c.category_id
 LEFT JOIN brands b ON p.brand_id = b.brand_id
 WHERE p.is_active = TRUE;
 ```
-
-### 🔄 Automated Operations
-
-**Triggers for data consistency**:
-- Auto-update product ratings after reviews
-- Create shopping cart on user registration
-- Update inventory on order completion
-
-**Stored procedures for business logic**:
-- Stock management operations
-- Order processing workflows
-- Customer analytics calculations
-
-## 🔒 Security Features
-
-### Data Protection
-- **Password Hashing**: Secure password storage
-- **Input Validation**: CHECK constraints prevent invalid data
-- **SQL Injection Prevention**: Parameterized queries support
-- **Data Integrity**: Foreign key constraints maintain consistency
-
-### Access Control Ready
-```sql
--- Example user roles (implement in application layer)
-ROLE: admin          -- Full database access
-ROLE: customer       -- Limited to own data
-ROLE: inventory      -- Stock management only
-ROLE: analytics      -- Read-only reporting access
-```
-
-### Audit Trail
-```sql
--- All tables include timestamps for audit trails
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-```
-
-## 🧪 Testing
-
-### Unit Tests
-- Data validation constraints
-- Foreign key relationship integrity
-- Trigger functionality
-- Stored procedure logic
-
-### Integration Tests  
-- Complete order workflow
-- Payment processing simulation
-- Inventory management cycles
-- User registration and authentication
-
-### Performance Tests
-- Query execution time analysis
-- Index effectiveness measurement
-- Concurrent user simulation
-- Load testing scenarios
-
 ## 📊 Database Metrics
 
 | Metric | Value |
@@ -508,32 +405,6 @@ updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 | **Constraints** | 25+ |
 | **Relationships** | One-to-Many, Many-to-Many, One-to-One |
 
-## 🔄 Future Enhancements
-
-### Planned Features
-- **Analytics Module**: Advanced reporting tables
-- **Multi-vendor Support**: Vendor management system
-- **Subscription Products**: Recurring billing support
-- **Digital Products**: Download and license management
-- **International**: Multi-currency and localization
-- **Mobile APIs**: Enhanced mobile app support
-
-### Scalability Considerations
-- **Horizontal Partitioning**: Order tables by date
-- **Read Replicas**: Separate reporting database
-- **Caching Layer**: Redis integration ready
-- **Microservices**: Modular service architecture
-
-## 👥 Contributing
-
-We welcome contributions! Please follow these guidelines:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
 ### Development Setup
 ```bash
 # Setup development environment
@@ -541,41 +412,8 @@ git clone https://github.com/yourusername/ecommerce-database.git
 cd ecommerce-database
 mysql -u root -p < ecommerce_schema.sql
 mysql -u root -p ecommerce_store < test_data.sql
-```
+``
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
-## 📞 Support & Contact
-
-- **Documentation**: [Wiki Pages](https://github.com/yourusername/ecommerce-database/wiki)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/ecommerce-database/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/ecommerce-database/discussions)
-
----
-
-## 🎖️ Project Highlights
-
-### Academic Excellence Features
-- ✅ **Complete CRUD Operations** supported
-- ✅ **Advanced SQL Features**: Views, Triggers, Stored Procedures
-- ✅ **Industry Best Practices**: Normalization, Indexing, Security
-- ✅ **Comprehensive Documentation**: Professional README with diagrams
-- ✅ **Real-world Application**: Production-ready e-commerce system
-- ✅ **Scalable Architecture**: Designed for growth and performance
-- ✅ **Security First**: Built-in validation and data protection
-
-### Technical Achievements
-- 🏆 **15 Interconnected Tables** with proper relationships
-- 🏆 **25+ Constraints** ensuring data integrity
-- 🏆 **Strategic Indexing** for optimal performance
-- 🏆 **Automated Operations** with triggers and procedures
-- 🏆 **Professional Documentation** with ER diagrams
-- 🏆 **Industry-Standard Schema** following best practices
-
----
-
-**Built with ❤️ for Database Systems Course**
+**Built with ❤️ for Database Systems assignment**
 
 *This project demonstrates advanced database design principles, real-world application scenarios, and production-ready implementation suitable for modern e-commerce platforms.*
